@@ -1,23 +1,17 @@
 class Whoopterm < Formula
   desc "WHOOP fitness dashboard for the terminal"
   homepage "https://github.com/idossha/whoopterm"
-  version "1.0.0"
+  url "https://github.com/idossha/whoopterm/archive/refs/tags/v1.1.0.tar.gz"
+  sha256 "9bbbc711ef2e496d5ecb2dbaffe0b63f50363696c8e7dd2dcc70ab57ebb8ddda"
+  license "MIT"
 
-  on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/idossha/whoopterm/releases/download/v1.0.0/whoop"
-      sha256 "PLACEHOLDER_SHA256_INTEL"
-    else
-      url "https://github.com/idossha/whoopterm/releases/download/v1.0.0/whoop"
-      sha256 "PLACEHOLDER_SHA256_ARM"
-    end
-  end
+  depends_on "rust" => :build
 
   def install
-    bin.install "whoop" => "whoopterm"
+    system "cargo", "install", *std_cargo_args
   end
 
   test do
-    system "#{bin}/whoopterm", "--version"
+    assert_match "whoopterm", shell_output("#{bin}/whoopterm --version")
   end
 end
