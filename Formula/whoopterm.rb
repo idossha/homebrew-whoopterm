@@ -1,8 +1,8 @@
 class Whoopterm < Formula
   desc "WHOOP fitness dashboard for the terminal"
   homepage "https://github.com/idossha/whoopterm"
-  url "https://github.com/idossha/whoopterm/archive/refs/tags/v1.1.0.tar.gz"
-  sha256 "9bbbc711ef2e496d5ecb2dbaffe0b63f50363696c8e7dd2dcc70ab57ebb8ddda"
+  url "https://github.com/idossha/whoopterm/archive/refs/tags/v0.1.0.tar.gz"
+  sha256 "79660cddd796025a515dd2b93556c3b289a886ce3611634b1f18fc141f25752b"
   license "MIT"
 
   depends_on "rust" => :build
